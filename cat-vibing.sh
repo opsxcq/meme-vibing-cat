@@ -23,7 +23,7 @@ begins_with_short_option()
 _arg_output="meme.mp4"
 _arg_cat_text="OPSXCQ"
 _arg_drummer_text="Bash"
-_arg_drum_text="Memes"
+_arg_drum_text="Shitposting memes"
 
 
 print_help()
@@ -115,11 +115,6 @@ parse_commandline()
 }
 
 parse_commandline "$@"
-
-_arg_output="meme.mp4"
-_arg_cat_text="OPSXCQ"
-_arg_drummer_text="Bash"
-_arg_drum_text="Shitposting memes"
 
 ffmpeg_args=$(printf "drawtext=text='%s': fontcolor=black: fontsize=48: x=200: y=550, drawtext=text='%s': fontcolor=white: x=850:y=400:fontsize=48, drawtext=text='%s': x=650: y=600: fontcolor=white: fontsize=48:" "${_arg_cat_text}" "${_arg_drummer_text}" "${_arg_drum_text}")
 
