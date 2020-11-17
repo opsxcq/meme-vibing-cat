@@ -1,6 +1,6 @@
 # Vibing Cat generator script
 
-!(cat vibing)[./print.png]
+![cat vibing](./print.png)
 
 This script generates the Vibing Cat meme from a template
 
