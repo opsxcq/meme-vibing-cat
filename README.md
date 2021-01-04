@@ -20,6 +20,7 @@ Usage: ./cat-vibing.sh [-o|--output <arg>] [-c|--cat-text <arg>] [-d|--drummer-t
 	-c, --cat-text: Text over the cat (default: 'OPSXCQ')
 	-d, --drummer-text: Text over the drummer (default: 'Bash')
 	-x, --drum-text: Text over the drum (default: 'Memes')
+	-t, --time-duration: Output video duration in second. between 1 to 174s (default: '174')
 	-v, --version: Prints version
 	-h, --help: Prints help
 ```
