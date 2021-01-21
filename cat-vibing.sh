@@ -24,6 +24,7 @@ _arg_output="meme.mp4"
 _arg_cat_text="OPSXCQ"
 _arg_drummer_text="Bash"
 _arg_drum_text="Shitposting memes"
+_arg_time_duration="174"
 
 
 print_help()
@@ -35,6 +36,7 @@ print_help()
 	printf '\t%s\n' "-c, --cat-text: Text over the cat (default: 'OPSXCQ')"
 	printf '\t%s\n' "-d, --drummer-text: Text over the drummer (default: 'Bash')"
 	printf '\t%s\n' "-x, --drum-text: Text over the drum (default: 'Memes')"
+	printf '\t%s\n' "-t, --time-duration: Output video duration in second (between 1 to 174s)"
 	printf '\t%s\n' "-v, --version: Prints version"
 	printf '\t%s\n' "-h, --help: Prints help"
 }
@@ -90,6 +92,17 @@ parse_commandline()
 			-x*)
 				_arg_drum_text="${_key##-x}"
 				;;
+			-t|--time-duration)
+				test $# -lt 2 && die "Missing value for the optional argument '$_key'." 1
+				_arg_time_duration="$2"
+				shift
+				;;
+			--time-duration=*)
+				_arg_time_duration="${_key##--time-duration=}"
+				;;
+			-t*)
+				_arg_time_duration="${_key##-t}"
+				;;				
 			-v|--version)
 				echo test v$version
 				exit 0
@@ -118,4 +131,4 @@ parse_commandline "$@"
 
 ffmpeg_args=$(printf "drawtext=text='%s': fontcolor=black: fontsize=48: x=200: y=550, drawtext=text='%s': fontcolor=white: x=850:y=400:fontsize=48, drawtext=text='%s': x=650: y=600: fontcolor=white: fontsize=48:" "${_arg_cat_text}" "${_arg_drummer_text}" "${_arg_drum_text}")
 
-ffmpeg -i cat.mp4 -threads 16 -vf "${ffmpeg_args}" -codec:a copy "${_arg_output}"
+ffmpeg -i cat.mp4 -t "${_arg_time_duration}" -threads 16 -vf "${ffmpeg_args}" -codec:a copy "${_arg_output}"
