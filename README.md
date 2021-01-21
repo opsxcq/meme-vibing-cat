@@ -4,6 +4,10 @@
 
 This script generates the Vibing Cat meme from a template
 
+# Prerequisites
+
+* ffmpeg (On Ubuntu 20.04: `sudo apt install ffmpeg`)
+
 # Usage
 
 ```shell
