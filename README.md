@@ -4,6 +4,13 @@
 
 This script generates the Vibing Cat meme from a template
 
+# Prerequisites
+
+* ffmpeg
+	- Ubuntu/Debian: `sudo apt install ffmpeg`
+	- Arch: `sudo pacman -S ffmpeg`
+	- Fedora/RHEL: `sudo dnf install ffmpeg` (requires RPM Fusion)
+
 # Usage
 
 ```shell
